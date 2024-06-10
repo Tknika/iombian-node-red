@@ -1,4 +1,4 @@
-FROM nodered/node-red:3.1.7
+FROM nodered/node-red:3.1.9-18
 
 ENV LISTENER_PORT=1880
 ENV AUTH_ENABLED=true
@@ -11,6 +11,8 @@ RUN npm install node-red-contrib-iiot-opcua@4.1.2
 
 COPY env-vars-entrypoint.sh /env-vars-entrypoint.sh
 COPY env-vars-entrypoint.js /env-vars-entrypoint.js
+
+USER root
 
 ENTRYPOINT [ "bash", "/env-vars-entrypoint.sh" ]
 
